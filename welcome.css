@@ -2,9 +2,38 @@
   width:600px;
   height:400px;
   display: flex;
-  justify-content: center;
+  margin:auto;
+  margin-top: 100px;
+  align-self:center;
 }
 
+
+.divSignIn{
+  width: 250px;
+  border: 1px solid black;
+  padding: 25px;
+  margin-left:10px;
+  background-color: white;
+  height: auto;
+  text-align: right;
+
+}
+
+.divSignUp{
+  width: 250px;
+  position:absolute;
+  top:230px;
+  right:465px;
+  border: 1px solid black;
+  background-color: white;
+  text-align: right;
+  height: auto;
+
+}
+
+.image{
+  border: 1px solid black;
+}
 body{
   background-color: #ACFFFC;
 }

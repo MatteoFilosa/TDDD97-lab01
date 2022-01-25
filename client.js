@@ -1,19 +1,22 @@
 function validateLogin() {
 
+
   let username = document.forms["login"]["username"].value;
   let password = document.forms["login"]["password"].value;
-  Match match = regex.Match(username);
-  Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+
+  //Match match = regex.Match(username);
+  //Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
   if (username == "") {
     document.getElementById('log').innerHTML = "Username cannot be empty!";
     return false;
   }
 
-  if (!match.Success){
+  /*if (!match.Success){
     document.getElementById('log').innerHTML = "Bad e-mail format!";
     return false;
   }
+  */
   if (password == "") {
     document.getElementById('log').innerHTML = "Password cannot be empty!";
     return false;
@@ -35,19 +38,19 @@ function validateSignUp() {
   let city = document.forms["signUp"]["city"].value;
   let country = document.forms["signUp"]["country"].value;
   let rPassword = document.forms["signUp"]["rPassword"].value;
-  Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-  Match match = regex.Match(username);
+  //Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+  //Match match = regex.Match(username);
 
   if (username == "") {
     document.getElementById('log').innerHTML = "Username cannot be empty!";
     return false;
   }
 
-  if (!match.Success){
+/*  if (!match.Success){
     document.getElementById('log').innerHTML = "Bad e-mail format!";
     return false;
   }
-
+*/
   if (firstName == "") {
     document.getElementById('log').innerHTML = "Name cannot be empty!";
     return false;
