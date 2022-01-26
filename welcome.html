@@ -14,15 +14,24 @@
             <div class ="divsignIn">
                 Email<input type="text" id="username" name="username">
                 Password<input type="password" id="password" name="password">
-                <input type="submit" id="submit" value="login">
+                <button type="button" id="submit" value="login" onclick="validateLogin()"> login</button>
             </div>
           </form>
         <form name ="signUp" id="signUp" class= "form-horizontal">
             <div class ="divSignUp">
-                <h3> Sign Up Here </h3>
-                First Name<input type="text" id="firstName" name="firstName">
-                Family Name<input type="text" id="familyName" name="familyName">
-
+                <h3 align ="center"> Sign Up Here </h3>
+                First Name<input type="text" id="firstName" name="firstName" align="right">
+                Fam. Name<input type="text" id="familyName" name="familyName" align="right">
+                Gender <select name="gender" id="gender" align="right">
+                    <option  value="Male">Male</option>
+                    <option value="Female">Female</option>
+                      </select>
+                City<input type="text" id="city" name="city" align="right">
+                Country<input type="text" id="country" name="country" align="right">
+                Email<input type="text" id="username" name="username" align="right">
+                Password<input type="password" id="password" name="passsword" align="right">
+                RepeatPSW<input type="password" id="rPassword" name="rPassword" align="right">
+                <button type="button" id="signUp" value="signUp" onclick="validateSignUp()" align="right"> SignUp</button>
             </div>
 
         </form>

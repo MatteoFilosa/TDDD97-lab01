@@ -8,6 +8,10 @@
 }
 
 
+label{
+  display: inline-block;
+  align-self: auto;
+}
 .divSignIn{
   width: 250px;
   border: 1px solid black;
@@ -19,15 +23,18 @@
 
 }
 
+select{
+  width: 170px;
+}
+
 .divSignUp{
   width: 250px;
   position:absolute;
   top:230px;
   right:465px;
+  text-align:right;
   border: 1px solid black;
   background-color: white;
-  text-align: right;
-  height: auto;
 
 }
 
@@ -35,5 +42,5 @@
   border: 1px solid black;
 }
 body{
-  background-color: #ACFFFC;
+  background-color: #328ba8;
 }
