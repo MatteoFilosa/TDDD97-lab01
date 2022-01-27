@@ -5,14 +5,18 @@
   margin:auto;
   margin-top: 100px;
   align-self:center;
+
 }
 
 
-label{
-  display: inline-block;
-  align-self: auto;
+label {
+
+    clear: both;
+    float:left;
+    margin-right:10px;
 }
 .divSignIn{
+
   width: 250px;
   border: 1px solid black;
   padding: 25px;
@@ -23,24 +27,26 @@ label{
 
 }
 
+
 select{
   width: 170px;
 }
 
 .divSignUp{
-  width: 250px;
-  position:absolute;
-  top:230px;
-  right:465px;
-  text-align:right;
+  width: 300px;
   border: 1px solid black;
+  margin-left:-302px;
+  margin-top: 120px;
   background-color: white;
+  height: 279px;
+  text-align: right;
 
 }
 
 .image{
   border: 1px solid black;
 }
+
 body{
   background-color: #328ba8;
 }

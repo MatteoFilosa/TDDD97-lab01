@@ -3,8 +3,6 @@ function validateLogin() {
   let username = document.forms["login"]["username"].value;
   let password = document.forms["login"]["password"].value;
 
-  //Match match = regex.Match(username);
-  //Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
   if (username == "") {
     document.getElementById('log').innerHTML = "Username cannot be empty!";
