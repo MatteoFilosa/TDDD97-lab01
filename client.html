@@ -39,6 +39,7 @@
               <div class="log" id="log"> </div>
       </div>
 
+
     </script>
 
 
@@ -49,10 +50,15 @@
   </head>
 
     <body>
-
-      <div onload ="welcomeview();">
-
+      <div id ="welcome">
       </div>
+
+    <script>
+      window.onload = function(){
+    document.getElementById("welcome").innerHTML = document.getElementById("welcomeview").textContent;
+    }
+  </script>
+
     </body>
 
 

@@ -18,13 +18,13 @@ function validateLogin() {
     document.getElementById('log').innerHTML = "Password cannot be empty!";
     return false;
   }
-  if (password.length()<5){
+  if (password.length<5){
     document.getElementById('log').innerHTML = "Password cannot be shorter than 5 characters.";
     return false;
   }
 
-  let dataObject = [username, password, firstName, familyName, gender, city, country];
-  serverstub.signIn(dataObject);
+  let dataObject = [username, password];
+    serverstub.signIn(dataObject);
 }
 
 function validateSignUp() {
