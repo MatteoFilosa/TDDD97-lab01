@@ -10,20 +10,20 @@
         <div class ="image">
           <img src="wimage.png" alt="welcome_image" style="width:340px;height:400px;">
         </div>
-          <form name="login" id="login" class="form-horizontal" method ="post" onsubmit="validateLogin()">
+          <form name="login" id="login" class="form-horizontal" method ="" onsubmit="validateLogin(this);return false;">
               <div class ="divsignIn">
                   <label for "username">Email </label> <input type="text" id="username" name="username">
                   <label for "password">Password </label><input type="password" id="password" name="password">
-                  <button type="button" id="submit" value="login" onclick="validateLogin()"> login</button>
+                  <input type="submit" id="submitSignIn" value="login">
               </div>
             </form>
-          <form name ="signUp" id="signUp" class= "form-horizontal">
+          <form name ="signUp" id="signUp" class= "form-horizontal" onsubmit="validateSignUp(this);return false;">
               <div class ="divSignUp">
                   <h3 align ="center"> Sign Up Here </h3>
                   <label for "firstName">First Name</label><input type="text" id="firstName" name="firstName">
-                  <label for "familyName">Fam.name</label><input type="text" id="familyName" name="familyName">
+                  <label for "familyName">Family name</label><input type="text" id="familyName" name="familyName">
                   <label for "gender">Gender</label><select name="gender" id="gender" align="right">
-                      <option  value="Male">Male</option>
+                      <option value="Male">Male</option>
                       <option value="Female">Female</option>
                         </select>
                   <label for "city">City</label><input type="text" id="city" name="city">
@@ -32,7 +32,7 @@
                   <label for "password">Password</label><input type="password" id="password" name="passsword">
                   <label for "rPassword">Repeat PSW</label><input type="password" id="rPassword" name="rPassword">
 
-                  <button type="button" id="signUp" value="signUp" onclick="validateSignUp()"> SignUp</button>
+                  <input type="submit" id="submitSignUp" value="SignUp">
               </div>
 
           </form>
@@ -42,10 +42,8 @@
 
     </script>
 
-
-
     <script type = "text/view" id ="profileview">
-    <h4>Happy Birthday!!<h4>
+    <h4>Profile<h4>
     </script>
   </head>
 
@@ -53,11 +51,7 @@
       <div id ="welcome">
       </div>
 
-    <script>
-      window.onload = function(){
-    document.getElementById("welcome").innerHTML = document.getElementById("welcomeview").textContent;
-    }
-  </script>
+
 
     </body>
 

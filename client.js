@@ -1,15 +1,20 @@
+window.onload = function(){
+document.getElementById("welcome").innerHTML = document.getElementById("welcomeview").textContent;
+}
+
+
 function validateLogin() {
 
-  let username = document.forms["login"]["username"].value;
+  let email = document.forms["login"]["username"].value;
   let password = document.forms["login"]["password"].value;
 
 
-  if (username == "") {
+  if (email == "") {
     document.getElementById('log').innerHTML = "Username cannot be empty!";
     return false;
   }
 
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(username) == false){
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false){
     document.getElementById('log').innerHTML = "Bad e-mail format!";
     return false;
   }
@@ -23,36 +28,38 @@ function validateLogin() {
     return false;
   }
 
-  let dataObject = [username, password];
-    serverstub.signIn(dataObject);
+  let dataObject = {"email" : email, "password" : password}
+  console.log(dataObject);
+  serverstub.signIn(dataObject);
 }
 
 function validateSignUp() {
 
-  let username = document.forms["signUp"]["username"].value;
+  let email = document.forms["signUp"]["username"].value;
   let password = document.forms["signUp"]["password"].value;
-  let firstName = document.forms["signUp"]["firstName"].value;
-  let familyName = document.forms["signUp"]["familyName"].value;
+  let firstname = document.forms["signUp"]["firstName"].value;
+  let familyname = document.forms["signUp"]["familyName"].value;
   let city = document.forms["signUp"]["city"].value;
   let country = document.forms["signUp"]["country"].value;
   let rPassword = document.forms["signUp"]["rPassword"].value;
+  let gender = document.forms["signUp"]["gender"].value;
 
-  if (username == "") {
+  if (email == "") {
     document.getElementById('log').innerHTML = "Username cannot be empty!";
     return false;
   }
 
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(username) == false){
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false){
     document.getElementById('log').innerHTML = "Bad e-mail format!";
     return false;
   }
 
-  if (firstName == "") {
+  if (firstname == "") {
     document.getElementById('log').innerHTML = "Name cannot be empty!";
     return false;
   }
 
-  if (familyName == "") {
+  if (familyname == "") {
     document.getElementById('log').innerHTML = "Family name cannot be empty!";
     return false;
   }
@@ -81,6 +88,9 @@ function validateSignUp() {
     document.getElementById('log').innerHTML = "Passwords should be equal!";
     return false;
   }
-  let dataObject = [username, password, firstName, familyName, gender, city, country];
+
+
+  let dataObject = {"email" : email, "password" : password, "firstname" : firstname, "familyname" : familyname, "gender" : gender, "city" : city, "country" : country}
+  console.log(dataObject);
   serverstub.signUp(dataObject);
 }
