@@ -29,8 +29,16 @@ function validateLogin() {
   }
 
   let dataObject = {"email" : email, "password" : password}
-  console.log(dataObject);
-  serverstub.signIn(dataObject);
+  let a = serverstub.signIn(email, password);
+  let token;
+  document.getElementById('log').innerHTML = a.message;
+  token = a.data;
+  console.log(token);
+  if(token != null){
+
+    document.getElementById("welcome").innerHTML = document.getElementById("profileview").textContent;
+
+  }
 }
 
 function validateSignUp() {
@@ -92,5 +100,5 @@ function validateSignUp() {
 
   let dataObject = {"email" : email, "password" : password, "firstname" : firstname, "familyname" : familyname, "gender" : gender, "city" : city, "country" : country}
   console.log(dataObject);
-  serverstub.signUp(dataObject);
+  document.getElementById('log').innerHTML = serverstub.signUp(dataObject).message;
 }
