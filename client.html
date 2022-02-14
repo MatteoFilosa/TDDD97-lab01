@@ -43,12 +43,91 @@
     </script>
 
     <script type = "text/view" id ="profileview">
-    <h4>Profile<h4>
+    <!-- Tab links -->
+      <div class="tab">
+          <button class="tablinks" onclick="openTab(event, 'Home')">Home</button>
+          <button class="tablinks" onclick="openTab(event, 'Browse')">Browse</button>
+          <button class="tablinks" onclick="openTab(event, 'Account')">Account</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="Home">
+        <h2>Home</h2>
+        <button class="infos" onclick="loadInfos(this);">Load Infos</button>
+
+        Post message:
+        <textarea id="messages" name="messages" rows="4" cols="50">
+        </textarea>
+        To user (email)<input type="text" id="emailTo" name="emailTo">
+          <button class="infos" onclick="validateMessage(this);">Post Message</button>
+
+
+        <div id="infos">
+        </div>
+
+        <button class="infos" onclick="validateGetMessages(this);">Get Messages</button>
+        <div id="messagesWall">
+
+        </div>
+
+        <div id ="logB">
+        </div>
+
+      </div>
+
+      <div id="Browse" style="display:none">
+        <h2>Browse</h2>
+        Insert user<input type="text" id="insertUser" name="insertUser">
+        <button class="insertUser" onclick="validateGetUserDetails();">Confirm</button>
+
+        <div id="result" style="display:none">
+            <button class="infos" onclick="loadInfosBrowse(this);">Load Infos</button>
+
+        Post message:
+          <textarea id="messagesBrowse" name="messagesBrowse" rows="4" cols="50">
+          </textarea>
+            <button class="infos" onclick="validatePostMessageBrowse(this);">Post Message to this user</button>
+
+          <div id="infosBrowse">
+          </div>
+
+          <button class="infos" onclick="validateGetMessagesBrowse(this);">Get this user Messages</button>
+          <div id="messagesWallBrowse">
+
+          </div>
+      </div>
+
+      <div id="selectedUserMail">
+      </div>
+
+      <div id ="logC">
+      </div>
+
+      </div>
+
+      <div id="Account" style="display:none">
+        <h2>Account</h2>
+
+        <form name ="changePsw" id="changePsw" onsubmit="pswCheck(this);return false;">
+          Old password<input type="password" id="oldPassword" name="oldPassword">
+          New password<input type="password" id="password" name="password">
+          Repeat new password<input type="password" id="rPassword" name="rPassword">
+        <input type="submit" id="changePsw" value="Change Password">
+        </form>
+          <button onclick="validateSignOut(this);">Sign Out</button>
+      </div>
+
+      <div id ="logA">
+      </div>
     </script>
+
+
   </head>
 
     <body>
-      <div id ="welcome">
+      <div id= "welcome">
+      </div>
+      <div id ="token" style="display: none;">
       </div>
 
 

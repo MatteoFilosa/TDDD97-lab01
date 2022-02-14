@@ -37,7 +37,7 @@ function validateLogin() {
   if(token != null){
 
     document.getElementById("welcome").innerHTML = document.getElementById("profileview").textContent;
-
+    document.getElementById("token").innerHTML = token;
   }
 }
 
@@ -101,4 +101,131 @@ function validateSignUp() {
   let dataObject = {"email" : email, "password" : password, "firstname" : firstname, "familyname" : familyname, "gender" : gender, "city" : city, "country" : country}
   console.log(dataObject);
   document.getElementById('log').innerHTML = serverstub.signUp(dataObject).message;
+}
+
+//TABS
+function openTab(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+
+
+function pswCheck(){
+  let oldPassword = document.forms["changePsw"]["oldPassword"].value;
+  let password = document.forms["changePsw"]["password"].value;
+  let pswConfirm = document.forms["changePsw"]["rPassword"].value;
+  let tokendiv = document.getElementById("token");
+  let token = tokendiv.textContent;
+
+  if(password != pswConfirm){
+    document.getElementById('logA').innerHTML = "Passwords should be equal!";
+    return false;
+  }
+  document.getElementById('logA').innerHTML = serverstub.changePassword(token, oldPassword, password).message;
+}
+
+function validateSignOut(){
+  let tokendiv = document.getElementById("token");
+  let token = tokendiv.textContent;
+  document.getElementById("welcome").innerHTML = document.getElementById("welcomeview").textContent;
+
+}
+
+function loadInfos(){
+    let tokendiv = document.getElementById("token");
+    let token = tokendiv.textContent;
+    document.getElementById('logB').innerHTML = serverstub.getUserDataByToken(token).message;
+    let a = serverstub.getUserDataByToken(token).data;
+    let b = JSON.stringify(a);
+    document.getElementById('infos').innerHTML = b;
+}
+
+function validateMessage(){
+    let tokendiv = document.getElementById("token");
+    let token = tokendiv.textContent;
+    let content = document.getElementById("messages").value;
+    let toEmail = document.getElementById("emailTo").value;
+    console.log(toEmail);
+    document.getElementById('logB').innerHTML = serverstub.postMessage(token, content, toEmail).message;
+}
+
+function validateGetMessages(){
+    let tokendiv = document.getElementById("token");
+    let token = tokendiv.textContent;
+
+    document.getElementById('logB').innerHTML = serverstub.getUserMessagesByToken(token).message;
+    let a = serverstub.getUserMessagesByToken(token).data;
+    let b = JSON.stringify(a);
+    document.getElementById('messagesWall').innerHTML = b;
+}
+
+// BROWSE FUNCTIONS
+function validateGetUserDetails(){
+
+    let targetDiv=document.getElementById("result");
+    let email = document.getElementById("insertUser").value;
+    let tokendiv = document.getElementById("token");
+    let token = tokendiv.textContent;
+    document.getElementById('selectedUserMail').innerHTML = email;
+
+    if(serverstub.getUserDataByEmail(token,email).success == false){
+      document.getElementById('logC').innerHTML = "Selected user does not exist.";
+    }
+
+    else{
+      targetDiv.style.display = "block";
+    }
+
+}
+
+function loadInfosBrowse(){
+    let tokendiv = document.getElementById("token");
+    let token = tokendiv.textContent;
+    let emaildiv = document.getElementById("selectedUserMail");
+    let toEmail = emaildiv.textContent;
+    console.log(toEmail);
+    document.getElementById('logC').innerHTML = serverstub.getUserDataByEmail(token, toEmail).message;
+    let a = serverstub.getUserDataByEmail(token, toEmail).data;
+    let b = JSON.stringify(a);
+    document.getElementById('infosBrowse').innerHTML = b;
+}
+
+
+function validatePostMessageBrowse(){
+    let tokendiv = document.getElementById("token");
+    let token = tokendiv.textContent;
+    let emaildiv = document.getElementById("selectedUserMail");
+    let toEmail = emaildiv.textContent;
+    let content = document.getElementById("messagesBrowse").value;
+    console.log(toEmail);
+    document.getElementById('logC').innerHTML = serverstub.postMessage(token, content, toEmail).message;
+}
+
+function validateGetMessagesBrowse(){
+    let tokendiv = document.getElementById("token");
+    let token = tokendiv.textContent;
+    let emaildiv = document.getElementById("selectedUserMail");
+    let toEmail = emaildiv.textContent;
+
+    document.getElementById('logC').innerHTML = serverstub.getUserMessagesByEmail(token, toEmail).message;
+    let a = serverstub.getUserMessagesByToken(token).data;
+    let b = JSON.stringify(a);
+    document.getElementById('messagesWallBrowse').innerHTML = b;
 }
