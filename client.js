@@ -225,7 +225,7 @@ function validateGetMessagesBrowse(){
     let toEmail = emaildiv.textContent;
 
     document.getElementById('logC').innerHTML = serverstub.getUserMessagesByEmail(token, toEmail).message;
-    let a = serverstub.getUserMessagesByToken(token).data;
+    let a = serverstub.getUserMessagesByEmail(token, toEmail).data;
     let b = JSON.stringify(a);
     document.getElementById('messagesWallBrowse').innerHTML = b;
 }
