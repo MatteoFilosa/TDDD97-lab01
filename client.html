@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang ="en">
   <head>
+    <title>Twidder</title>
+    <meta charset="UTF-8">
     <link href = "client.css" type = "text/css" rel="stylesheet">
-    <script src = "client.js" type = "text/javascript"></script>
-    <script src = "serverstub.js" type = "text/javascript"></script>
+    <script src = "client.js"></script>
+    <script src = "serverstub.js"></script>
     <script type = "text/view" id ="welcomeview">
 
 
@@ -11,7 +14,7 @@
           <img src="wimage.png" alt="welcome_image" style="width:340px;height:400px;">
         </div>
           <form name="login" id="login" class="form-horizontal" method ="" onsubmit="validateLogin(this);return false;">
-              <div class ="divsignIn">
+              <div class ="divSignIn">
                   <label for "username">Email </label> <input type="text" id="username" name="username">
                   <label for "password">Password </label><input type="password" id="password" name="password">
                   <input type="submit" id="submitSignIn" value="login">
