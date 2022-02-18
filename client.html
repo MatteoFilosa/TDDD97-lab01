@@ -54,21 +54,21 @@
       </div>
 
       <!-- Tab content -->
-      <div id="Home">
+      <div id="Home" class="tabcontent" , style="display:block">
         <h2>Home</h2>
         <button class="infos" onclick="loadInfos(this);">Load Infos</button>
 
         Post message:
         <textarea id="messages" name="messages" rows="4" cols="50">
         </textarea>
-        To user (email)<input type="text" id="emailTo" name="emailTo">
+
           <button class="infos" onclick="validateMessage(this);">Post Message</button>
 
 
         <div id="infos">
         </div>
 
-        <button class="infos" onclick="validateGetMessages(this);">Get Messages</button>
+        <button class="infos" onclick="validateGetMessages(this);">Refresh</button>
         <div id="messagesWall">
 
         </div>
@@ -78,7 +78,7 @@
         <span onclick="this.parentElement.style.display='none'">[x]</span>
       </div>
 
-      <div id="Browse" style="display:none">
+      <div id="Browse" class="tabcontent" style="display:none">
         <h2>Browse</h2>
         Insert user<input type="text" id="insertUser" name="insertUser">
         <button class="insertUser" onclick="validateGetUserDetails();">Confirm</button>
@@ -108,7 +108,7 @@
       <span onclick="this.parentElement.style.display='none'">[x]</span>
       </div>
 
-      <div id="Account" style="display:none">
+      <div id="Account" class="tabcontent" style="display:none">
         <h2>Account</h2>
 
         <form name ="changePsw" id="changePsw" onsubmit="pswCheck(this);return false;">
@@ -133,7 +133,8 @@
       </div>
       <div id ="token" style="display: none;">
       </div>
-
+      <div id ="emailNow" style ="display: none;">
+    </div>
 
 
     </body>

@@ -38,6 +38,8 @@ function validateLogin() {
 
     document.getElementById("welcome").innerHTML = document.getElementById("profileview").textContent;
     document.getElementById("token").innerHTML = token;
+    document.getElementById("emailNow").textContent = email;
+    validateGetMessages();
   }
 }
 
@@ -161,15 +163,15 @@ function validateMessage(){
     let tokendiv = document.getElementById("token");
     let token = tokendiv.textContent;
     let content = document.getElementById("messages").value;
-    let toEmail = document.getElementById("emailTo").value;
+    let toEmail = document.getElementById("emailNow").textContent;
     console.log(toEmail);
     document.getElementById('logB').innerHTML = serverstub.postMessage(token, content, toEmail).message;
+    document.getElementById('messagesWall').innerHTML += content + " : " + toEmail;
 }
 
 function validateGetMessages(){
     let tokendiv = document.getElementById("token");
     let token = tokendiv.textContent;
-
     document.getElementById('logB').innerHTML = serverstub.getUserMessagesByToken(token).message;
     let a = serverstub.getUserMessagesByToken(token).data;
     let b = JSON.stringify(a);
